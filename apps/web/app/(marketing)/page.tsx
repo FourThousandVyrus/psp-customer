@@ -16,6 +16,7 @@ import { Security } from '@/components/marketing/Security';
 import { FAQ } from '@/components/marketing/FAQ';
 import { MobileNav } from '@/components/marketing/MobileNav';
 import { AnimateIn } from '@/components/marketing/AnimateIn';
+import { NewsletterForm } from '@/components/marketing/NewsletterForm';
 
 const features = [
   {
@@ -431,26 +432,7 @@ export default function LandingPage() {
               </p>
 
               {/* Newsletter */}
-              <form
-                onSubmit={(e) => e.preventDefault()}
-                className="flex gap-2 mt-2"
-              >
-                <label htmlFor="footer-email" className="sr-only">
-                  Email address
-                </label>
-                <input
-                  id="footer-email"
-                  type="email"
-                  placeholder="you@company.com"
-                  className="flex-1 bg-gray-800 border border-gray-700 rounded-lg px-4 py-2.5 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                />
-                <button
-                  type="submit"
-                  className="bg-green-600 text-white px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-green-700 transition-colors flex-shrink-0"
-                >
-                  Subscribe
-                </button>
-              </form>
+              <NewsletterForm />
             </div>
 
             {/* Product */}

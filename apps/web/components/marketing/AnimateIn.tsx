@@ -1,18 +1,18 @@
 'use client';
 
-import { motion, type HTMLMotionProps } from 'framer-motion';
+import { motion } from 'framer-motion';
 import type { ReactNode } from 'react';
 
-interface AnimateInProps extends HTMLMotionProps<'div'> {
+interface AnimateInProps {
   children: ReactNode;
   delay?: number;
+  className?: string;
 }
 
 export function AnimateIn({
   children,
   delay = 0,
   className,
-  ...rest
 }: AnimateInProps) {
   return (
     <motion.div
@@ -21,7 +21,6 @@ export function AnimateIn({
       viewport={{ once: true, margin: '-40px' }}
       transition={{ duration: 0.5, delay }}
       className={className}
-      {...rest}
     >
       {children}
     </motion.div>
