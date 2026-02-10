@@ -1,0 +1,131 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Merchant {
+  id                String    @id @default(cuid())
+  email             String    @unique
+  passwordHash      String
+  businessName      String
+  contactPhone      String?
+  logo              String?
+  apiKeyTest        String    @unique
+  apiKeyLive        String?   @unique
+  webhookUrl        String?
+  webhookSecret     String?
+  isLiveMode        Boolean   @default(false)
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+
+  transactions      Transaction[]
+  customers         Customer[]
+  webhookLogs       WebhookLog[]
+
+  @@map("merchants")
+}
+
+model Customer {
+  id                String    @id @default(cuid())
+  merchantId        String
+  phoneNumber       String    // Primary identifier for Ghana
+  email             String?
+  name              String?
+  metadata          Json?
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+
+  merchant          Merchant  @relation(fields: [merchantId], references: [id], onDelete: Cascade)
+  transactions      Transaction[]
+
+  @@unique([merchantId, phoneNumber])
+  @@map("customers")
+}
+
+model Transaction {
+  id                String    @id @default(cuid())
+  merchantId        String
+  customerId        String?
+
+  // Payment details
+  provider          MobileMoneyProvider
+  phoneNumber       String
+  amount            Int       // In pesewas (100 pesewas = 1 GHS)
+  currency          String    @default("GHS")
+
+  // Status tracking
+  status            TransactionStatus @default(PENDING)
+
+  // References
+  merchantReference String    // Merchant's order/invoice ID
+  providerReference String?   // Provider's transaction ID
+
+  // Metadata
+  description       String?
+  metadata          Json?
+
+  // Timestamps
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  processedAt       DateTime?
+
+  merchant          Merchant  @relation(fields: [merchantId], references: [id], onDelete: Cascade)
+  customer          Customer? @relation(fields: [customerId], references: [id], onDelete: SetNull)
+  webhookLogs       WebhookLog[]
+
+  @@index([merchantId, status])
+  @@index([merchantId, createdAt])
+  @@index([phoneNumber])
+  @@map("transactions")
+}
+
+model WebhookLog {
+  id                String    @id @default(cuid())
+  merchantId        String
+  transactionId     String
+
+  event             String    // e.g., "payment.success"
+  payload           Json
+
+  status            WebhookStatus @default(PENDING)
+  attempts          Int       @default(0)
+  lastAttemptAt     DateTime?
+  nextRetryAt       DateTime?
+
+  responseStatus    Int?
+  responseBody      String?
+
+  createdAt         DateTime  @default(now())
+
+  merchant          Merchant  @relation(fields: [merchantId], references: [id], onDelete: Cascade)
+  transaction       Transaction @relation(fields: [transactionId], references: [id], onDelete: Cascade)
+
+  @@index([merchantId, status])
+  @@map("webhook_logs")
+}
+
+enum MobileMoneyProvider {
+  MTN
+  VODAFONE
+  AIRTELTIGO
+}
+
+enum TransactionStatus {
+  PENDING
+  PROCESSING
+  SUCCESS
+  FAILED
+  EXPIRED
+  REFUNDED
+}
+
+enum WebhookStatus {
+  PENDING
+  SUCCESS
+  FAILED
+  EXHAUSTED
+}
