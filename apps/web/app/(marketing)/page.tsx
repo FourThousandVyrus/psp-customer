@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import { ArrowRight, Zap, Shield, BarChart3, Smartphone, CheckCircle2, Clock } from 'lucide-react';
 import { HowItWorks } from '@/components/marketing/HowItWorks';
