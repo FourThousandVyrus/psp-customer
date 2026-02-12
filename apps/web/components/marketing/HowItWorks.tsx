@@ -1,4 +1,5 @@
 import { Code, Zap, CheckCircle, ArrowRight } from 'lucide-react';
+import { CodeTabs } from './CodeTabs';
 
 export function HowItWorks() {
   return (
@@ -114,46 +115,8 @@ export function HowItWorks() {
           </div>
         </div>
 
-        {/* Code Example */}
-        <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200">
-          <div className="bg-gray-900 px-6 py-4 flex items-center justify-between">
-            <div className="flex items-center space-x-2">
-              <div className="w-3 h-3 rounded-full bg-red-500"></div>
-              <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-              <div className="w-3 h-3 rounded-full bg-green-500"></div>
-            </div>
-            <span className="text-gray-400 text-sm font-mono">example.js</span>
-          </div>
-          <div className="p-6 bg-gray-900">
-            <pre className="text-sm overflow-x-auto">
-              <code className="text-gray-300">
-                <span className="text-gray-500">// Initialize Links Payments</span>
-                {'\n'}
-                <span className="text-purple-400">const</span> <span className="text-blue-300">Links</span> = <span className="text-yellow-400">require</span>(<span className="text-orange-400">'@links/payments'</span>);
-                {'\n'}
-                <span className="text-purple-400">const</span> links = <span className="text-purple-400">new</span> <span className="text-blue-300">Links</span>(<span className="text-orange-400">'sk_test_your_api_key'</span>);
-                {'\n\n'}
-                <span className="text-gray-500">// Create a payment</span>
-                {'\n'}
-                <span className="text-purple-400">const</span> payment = <span className="text-purple-400">await</span> links.payments.create({'{'}
-                {'\n'}
-                {'  '}amount: <span className="text-blue-400">10000</span>, <span className="text-gray-500">// 100 GHS in pesewas</span>
-                {'\n'}
-                {'  '}phone: <span className="text-orange-400">'+233244123456'</span>,
-                {'\n'}
-                {'  '}provider: <span className="text-orange-400">'MTN'</span>,
-                {'\n'}
-                {'  '}reference: <span className="text-orange-400">'ORDER-123'</span>
-                {'\n'}
-                {'}'});
-                {'\n\n'}
-                <span className="text-gray-500">// Check payment status</span>
-                {'\n'}
-                console.log(payment.status); <span className="text-gray-500">// 'success'</span>
-              </code>
-            </pre>
-          </div>
-        </div>
+        {/* Code Example with Tabs */}
+        <CodeTabs />
       </div>
     </section>
   );
