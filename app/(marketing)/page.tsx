@@ -2,6 +2,9 @@ import Link from 'next/link';
 import { ArrowRight, Zap, Shield, BarChart3, Smartphone, CheckCircle2, Clock } from 'lucide-react';
 import { HowItWorks } from '@/components/marketing/HowItWorks';
 import { Pricing } from '@/components/marketing/Pricing';
+import { MobileNav } from '@/components/marketing/MobileNav';
+import { Testimonials } from '@/components/marketing/Testimonials';
+import { TrustBadges } from '@/components/marketing/TrustBadges';
 
 export default function LandingPage() {
   return (
@@ -38,6 +41,7 @@ export default function LandingPage() {
                   Get Started
                 </Link>
               </div>
+              <MobileNav />
             </div>
           </nav>
 
@@ -213,7 +217,7 @@ export default function LandingPage() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Feature 1 */}
+            {/* Feature 1 - Green */}
             <div className="bg-gradient-to-br from-green-50 to-white p-8 rounded-2xl border border-green-100">
               <div className="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mb-4">
                 <Zap className="w-6 h-6 text-white" />
@@ -226,7 +230,7 @@ export default function LandingPage() {
               </p>
             </div>
 
-            {/* Feature 2 */}
+            {/* Feature 2 - Blue */}
             <div className="bg-gradient-to-br from-blue-50 to-white p-8 rounded-2xl border border-blue-100">
               <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
                 <Shield className="w-6 h-6 text-white" />
@@ -239,9 +243,9 @@ export default function LandingPage() {
               </p>
             </div>
 
-            {/* Feature 3 */}
-            <div className="bg-gradient-to-br from-purple-50 to-white p-8 rounded-2xl border border-purple-100">
-              <div className="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mb-4">
+            {/* Feature 3 - Green */}
+            <div className="bg-gradient-to-br from-green-50 to-white p-8 rounded-2xl border border-green-100">
+              <div className="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mb-4">
                 <BarChart3 className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
@@ -252,9 +256,9 @@ export default function LandingPage() {
               </p>
             </div>
 
-            {/* Feature 4 */}
-            <div className="bg-gradient-to-br from-orange-50 to-white p-8 rounded-2xl border border-orange-100">
-              <div className="w-12 h-12 bg-orange-600 rounded-lg flex items-center justify-center mb-4">
+            {/* Feature 4 - Blue */}
+            <div className="bg-gradient-to-br from-blue-50 to-white p-8 rounded-2xl border border-blue-100">
+              <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
                 <Smartphone className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
@@ -265,9 +269,9 @@ export default function LandingPage() {
               </p>
             </div>
 
-            {/* Feature 5 */}
-            <div className="bg-gradient-to-br from-pink-50 to-white p-8 rounded-2xl border border-pink-100">
-              <div className="w-12 h-12 bg-pink-600 rounded-lg flex items-center justify-center mb-4">
+            {/* Feature 5 - Green */}
+            <div className="bg-gradient-to-br from-green-50 to-white p-8 rounded-2xl border border-green-100">
+              <div className="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mb-4">
                 <Clock className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
@@ -278,9 +282,9 @@ export default function LandingPage() {
               </p>
             </div>
 
-            {/* Feature 6 */}
-            <div className="bg-gradient-to-br from-indigo-50 to-white p-8 rounded-2xl border border-indigo-100">
-              <div className="w-12 h-12 bg-indigo-600 rounded-lg flex items-center justify-center mb-4">
+            {/* Feature 6 - Blue */}
+            <div className="bg-gradient-to-br from-blue-50 to-white p-8 rounded-2xl border border-blue-100">
+              <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
                 <CheckCircle2 className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
@@ -297,6 +301,12 @@ export default function LandingPage() {
       {/* How It Works Section */}
       <HowItWorks />
 
+      {/* Testimonials Section */}
+      <Testimonials />
+
+      {/* Trust Badges Section */}
+      <TrustBadges />
+
       {/* Pricing Section */}
       <Pricing />
 
@@ -307,14 +317,14 @@ export default function LandingPage() {
             Ready to start accepting payments?
           </h2>
           <p className="text-xl text-green-50 mb-8 max-w-2xl mx-auto">
-            Join hundreds of businesses already using Links Payments to grow their revenue
+            Join 500+ businesses already using Links Payments to grow their revenue
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/signup"
               className="inline-flex items-center justify-center bg-white text-green-600 px-8 py-4 rounded-lg hover:bg-green-50 transition-colors font-semibold text-lg group"
             >
-              Get Started for Free
+              Sign Up Now
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
@@ -328,58 +338,117 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-gray-300 py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8 mb-8">
-            <div className="space-y-4">
-              <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 bg-gradient-to-br from-green-600 to-green-400 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold">L</span>
-                </div>
-                <span className="text-xl font-bold text-white">Links Payments</span>
+      <footer className="bg-gray-900 text-gray-300">
+        {/* Trust Section */}
+        <div className="border-b border-gray-800 py-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p className="text-center text-sm text-gray-400 mb-4">
+              Enterprise Security & Compliance
+            </p>
+            <div className="flex flex-wrap justify-center gap-6 text-sm">
+              <div className="flex items-center gap-2">
+                <div className="w-1 h-1 bg-green-600 rounded-full"></div>
+                <span>PCI DSS Level 1</span>
               </div>
-              <p className="text-sm text-gray-400">
-                Accept mobile money payments in Ghana with ease.
-              </p>
-            </div>
-
-            <div>
-              <h4 className="font-semibold text-white mb-4">Product</h4>
-              <ul className="space-y-2 text-sm">
-                <li><Link href="#features" className="hover:text-white transition-colors">Features</Link></li>
-                <li><Link href="#pricing" className="hover:text-white transition-colors">Pricing</Link></li>
-                <li><Link href="#" className="hover:text-white transition-colors">API</Link></li>
-                <li><Link href="#" className="hover:text-white transition-colors">Documentation</Link></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-semibold text-white mb-4">Company</h4>
-              <ul className="space-y-2 text-sm">
-                <li><Link href="#" className="hover:text-white transition-colors">About</Link></li>
-                <li><Link href="#" className="hover:text-white transition-colors">Blog</Link></li>
-                <li><Link href="#" className="hover:text-white transition-colors">Careers</Link></li>
-                <li><Link href="#" className="hover:text-white transition-colors">Contact</Link></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-semibold text-white mb-4">Legal</h4>
-              <ul className="space-y-2 text-sm">
-                <li><Link href="#" className="hover:text-white transition-colors">Privacy</Link></li>
-                <li><Link href="#" className="hover:text-white transition-colors">Terms</Link></li>
-                <li><Link href="#" className="hover:text-white transition-colors">Security</Link></li>
-              </ul>
+              <div className="flex items-center gap-2">
+                <div className="w-1 h-1 bg-green-600 rounded-full"></div>
+                <span>256-bit SSL Encryption</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-1 h-1 bg-green-600 rounded-full"></div>
+                <span>GDPR Compliant</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-1 h-1 bg-green-600 rounded-full"></div>
+                <span>99.9% Uptime SLA</span>
+              </div>
             </div>
           </div>
+        </div>
 
-          <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-sm text-gray-400">
-              © 2026 Links Payments. All rights reserved.
-            </p>
-            <p className="text-sm text-gray-400 mt-4 md:mt-0">
-              Built with ❤️ for Ghana's mobile money ecosystem
-            </p>
+        <div className="py-12">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid md:grid-cols-5 gap-8 mb-8">
+              <div className="space-y-4">
+                <div className="flex items-center space-x-2">
+                  <div className="w-8 h-8 bg-gradient-to-br from-green-600 to-green-400 rounded-lg flex items-center justify-center">
+                    <span className="text-white font-bold">L</span>
+                  </div>
+                  <span className="text-xl font-bold text-white">Links Payments</span>
+                </div>
+                <p className="text-sm text-gray-400">
+                  Accept mobile money payments in Ghana with ease.
+                </p>
+                {/* Social Links */}
+                <div className="flex gap-4 pt-4">
+                  <Link href="#" className="text-gray-400 hover:text-green-400 transition-colors">
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8.29 20v-7.21H5.5V9.25h2.79V7.07c0-2.77 1.69-4.28 4.16-4.28 1.18 0 2.2.09 2.49.13v2.89h-1.71c-1.34 0-1.6.64-1.6 1.57v2.06h3.21l-4.18 3.54V20" /></svg>
+                  </Link>
+                  <Link href="#" className="text-gray-400 hover:text-green-400 transition-colors">
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75 2.25 9 1.5 11-5a4.5 4.5 0 00-6-5" /></svg>
+                  </Link>
+                  <Link href="#" className="text-gray-400 hover:text-green-400 transition-colors">
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" /></svg>
+                  </Link>
+                  <Link href="#" className="text-gray-400 hover:text-green-400 transition-colors">
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-5.04-6.71l-2.75 3.54h2.86l3.32-4.04-2.43 1.5z" /></svg>
+                  </Link>
+                </div>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-white mb-4">Product</h4>
+                <ul className="space-y-2 text-sm">
+                  <li><Link href="#features" className="hover:text-white transition-colors">Features</Link></li>
+                  <li><Link href="#pricing" className="hover:text-white transition-colors">Pricing</Link></li>
+                  <li><Link href="#" className="hover:text-white transition-colors">API</Link></li>
+                  <li><Link href="#" className="hover:text-white transition-colors">Documentation</Link></li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-white mb-4">Company</h4>
+                <ul className="space-y-2 text-sm">
+                  <li><Link href="#" className="hover:text-white transition-colors">About</Link></li>
+                  <li><Link href="#" className="hover:text-white transition-colors">Blog</Link></li>
+                  <li><Link href="#" className="hover:text-white transition-colors">Careers</Link></li>
+                  <li><Link href="#" className="hover:text-white transition-colors">Contact</Link></li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-white mb-4">Legal</h4>
+                <ul className="space-y-2 text-sm">
+                  <li><Link href="#" className="hover:text-white transition-colors">Privacy</Link></li>
+                  <li><Link href="#" className="hover:text-white transition-colors">Terms</Link></li>
+                  <li><Link href="#" className="hover:text-white transition-colors">Security</Link></li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-white mb-4">Newsletter</h4>
+                <p className="text-sm text-gray-400 mb-3">Get updates on new features and updates</p>
+                <form className="flex gap-2" onSubmit={(e) => e.preventDefault()}>
+                  <input
+                    type="email"
+                    placeholder="Your email"
+                    className="flex-1 px-3 py-2 rounded bg-gray-800 text-white placeholder:text-gray-500 text-sm outline-none focus:ring-2 focus:ring-green-600"
+                  />
+                  <button className="px-3 py-2 rounded bg-green-600 hover:bg-green-700 transition-colors text-white text-sm font-medium">
+                    Subscribe
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+              <p className="text-sm text-gray-400">
+                © 2026 Links Payments. All rights reserved.
+              </p>
+              <p className="text-sm text-gray-400 mt-4 md:mt-0">
+                Built for Ghana's mobile money ecosystem
+              </p>
+            </div>
           </div>
         </div>
       </footer>
